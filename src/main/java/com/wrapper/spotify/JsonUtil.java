@@ -1,32 +1,6 @@
 package com.wrapper.spotify;
 
-import com.wrapper.spotify.models.Album;
-import com.wrapper.spotify.models.AlbumType;
-import com.wrapper.spotify.models.Artist;
-import com.wrapper.spotify.models.AuthorizationCodeCredentials;
-import com.wrapper.spotify.models.ClientCredentials;
-import com.wrapper.spotify.models.Copyright;
-import com.wrapper.spotify.models.ExternalIds;
-import com.wrapper.spotify.models.ExternalUrls;
-import com.wrapper.spotify.models.FeaturedPlaylists;
-import com.wrapper.spotify.models.Followers;
-import com.wrapper.spotify.models.Image;
-import com.wrapper.spotify.models.LibraryTrack;
-import com.wrapper.spotify.models.NewReleases;
-import com.wrapper.spotify.models.Page;
-import com.wrapper.spotify.models.Playlist;
-import com.wrapper.spotify.models.PlaylistTrack;
-import com.wrapper.spotify.models.PlaylistTracksInformation;
-import com.wrapper.spotify.models.Product;
-import com.wrapper.spotify.models.RefreshAccessTokenCredentials;
-import com.wrapper.spotify.models.SimpleAlbum;
-import com.wrapper.spotify.models.SimpleArtist;
-import com.wrapper.spotify.models.SimplePlaylist;
-import com.wrapper.spotify.models.SimpleTrack;
-import com.wrapper.spotify.models.SnapshotResult;
-import com.wrapper.spotify.models.SpotifyEntityType;
-import com.wrapper.spotify.models.Track;
-import com.wrapper.spotify.models.User;
+import com.wrapper.spotify.models.*;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONException;
@@ -341,6 +315,43 @@ public class JsonUtil {
       returnedTracks.add(createTrack(tracks.getJSONObject(i)));
     }
     return returnedTracks;
+  }
+
+  public static List<AudioFeature> createAudioFeatures(JSONObject jsonObject) {
+    final List<AudioFeature> returnedAudioFeatures = new ArrayList<AudioFeature>();
+    final JSONArray audioFeatures = jsonObject.getJSONArray("audio_features");
+    for (int i = 0; i < audioFeatures.size(); i++) {
+      returnedAudioFeatures.add(createAudioFeature(audioFeatures.getJSONObject(i)));
+    }
+    return returnedAudioFeatures;
+  }
+
+  public static AudioFeature createAudioFeature(JSONObject audioFeatureJson) {
+    if (audioFeatureJson == null || audioFeatureJson.isNullObject()) {
+      return null;
+    }
+
+    final AudioFeature audioFeature = new AudioFeature();
+    audioFeature.setDanceability(audioFeatureJson.getDouble("danceability"));
+    audioFeature.setEnergy(audioFeatureJson.getDouble("energy"));
+    audioFeature.setKey(audioFeatureJson.getInt("key"));
+    audioFeature.setLoudness(audioFeatureJson.getDouble("loudness"));
+    audioFeature.setMode(audioFeatureJson.getInt("mode"));
+    audioFeature.setSpeechiness(audioFeatureJson.getDouble("speechiness"));
+    audioFeature.setAcousticness(audioFeatureJson.getDouble("acousticness"));
+    audioFeature.setInstrumentalness(audioFeatureJson.getDouble("instrumentalness"));
+    audioFeature.setLiveness(audioFeatureJson.getDouble("liveness"));
+    audioFeature.setValence(audioFeatureJson.getDouble("valence"));
+    audioFeature.setTempo(audioFeatureJson.getDouble("tempo"));
+    audioFeature.setType(audioFeatureJson.getString("type"));
+    audioFeature.setId(audioFeatureJson.getString("id"));
+    audioFeature.setUri(audioFeatureJson.getString("uri"));
+    audioFeature.setTrackHref(audioFeatureJson.getString("track_href"));
+    audioFeature.setAnalysisUrl(audioFeatureJson.getString("analysis_url"));
+    audioFeature.setDurationMs(audioFeatureJson.getInt("duration_ms"));
+    audioFeature.setTimeSignature(audioFeatureJson.getInt("time_signature"));
+
+    return audioFeature;
   }
 
 
