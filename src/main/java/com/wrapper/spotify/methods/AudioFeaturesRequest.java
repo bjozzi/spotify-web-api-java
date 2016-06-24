@@ -51,7 +51,7 @@ public class AudioFeaturesRequest extends AbstractRequest {
          */
         public Builder id(String ...ids) {
             assert (ids != null);
-            final String idsParameter = Joiner.on(",").join(ids);
+            final String idsParameter = Joiner.on(",").skipNulls().join(ids);
             path("/v1/audio-features");
             return parameter("ids", idsParameter);
         }
