@@ -21,6 +21,7 @@ public class Album {
   private Page<SimpleTrack> tracks;
   private SpotifyEntityType type = SpotifyEntityType.ALBUM;
   private String uri;
+  private String label;
 
   public AlbumType getAlbumType() {
     return albumType;
@@ -157,4 +158,8 @@ public class Album {
   public void setReleaseDate(String releaseDate) {
     this.releaseDate = releaseDate;
   }
+
+  public void setLabel(String label) { this.label = label;}
+
+  public String getLabel() { return label; }
 }

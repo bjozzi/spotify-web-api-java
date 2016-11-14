@@ -139,6 +139,7 @@ public class JsonUtil {
     album.setTracks(createSimpleTrackPage(albumJson.getJSONObject("tracks")));
     album.setType(createSpotifyEntityType(albumJson.getString("type")));
     album.setUri(albumJson.getString("uri"));
+    album.setLabel(albumJson.getString("label"));
 
     return album;
   }
