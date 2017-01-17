@@ -335,23 +335,40 @@ public class JsonUtil {
     final AudioFeature audioFeature = new AudioFeature();
     if (existsAndNotNull("danceability",audioFeatureJson))
       audioFeature.setDanceability(audioFeatureJson.getDouble("danceability"));
-    audioFeature.setEnergy(audioFeatureJson.getDouble("energy"));
-    audioFeature.setKey(audioFeatureJson.getInt("key"));
-    audioFeature.setLoudness(audioFeatureJson.getDouble("loudness"));
-    audioFeature.setMode(audioFeatureJson.getInt("mode"));
-    audioFeature.setSpeechiness(audioFeatureJson.getDouble("speechiness"));
-    audioFeature.setAcousticness(audioFeatureJson.getDouble("acousticness"));
-    audioFeature.setInstrumentalness(audioFeatureJson.getDouble("instrumentalness"));
-    audioFeature.setLiveness(audioFeatureJson.getDouble("liveness"));
-    audioFeature.setValence(audioFeatureJson.getDouble("valence"));
-    audioFeature.setTempo(audioFeatureJson.getDouble("tempo"));
-    audioFeature.setType(audioFeatureJson.getString("type"));
-    audioFeature.setId(audioFeatureJson.getString("id"));
-    audioFeature.setUri(audioFeatureJson.getString("uri"));
-    audioFeature.setTrackHref(audioFeatureJson.getString("track_href"));
-    audioFeature.setAnalysisUrl(audioFeatureJson.getString("analysis_url"));
-    audioFeature.setDurationMs(audioFeatureJson.getInt("duration_ms"));
-    audioFeature.setTimeSignature(audioFeatureJson.getInt("time_signature"));
+    if (existsAndNotNull("energy",audioFeatureJson))
+      audioFeature.setEnergy(audioFeatureJson.getDouble("energy"));
+    if (existsAndNotNull("key",audioFeatureJson))
+      audioFeature.setKey(audioFeatureJson.getInt("key"));
+    if (existsAndNotNull("loudness",audioFeatureJson))
+      audioFeature.setLoudness(audioFeatureJson.getDouble("loudness"));
+    if (existsAndNotNull("mode",audioFeatureJson))
+      audioFeature.setMode(audioFeatureJson.getInt("mode"));
+    if (existsAndNotNull("speechiness",audioFeatureJson))
+      audioFeature.setSpeechiness(audioFeatureJson.getDouble("speechiness"));
+    if (existsAndNotNull("acousticness",audioFeatureJson))
+      audioFeature.setAcousticness(audioFeatureJson.getDouble("acousticness"));
+    if (existsAndNotNull("instrumentalness",audioFeatureJson))
+      audioFeature.setInstrumentalness(audioFeatureJson.getDouble("instrumentalness"));
+    if (existsAndNotNull("liveness",audioFeatureJson))
+      audioFeature.setLiveness(audioFeatureJson.getDouble("liveness"));
+    if (existsAndNotNull("valence",audioFeatureJson))
+      audioFeature.setValence(audioFeatureJson.getDouble("valence"));
+    if (existsAndNotNull("tempo",audioFeatureJson))
+      audioFeature.setTempo(audioFeatureJson.getDouble("tempo"));
+    if (existsAndNotNull("type",audioFeatureJson))
+      audioFeature.setType(audioFeatureJson.getString("type"));
+    if (existsAndNotNull("id",audioFeatureJson))
+      audioFeature.setId(audioFeatureJson.getString("id"));
+    if (existsAndNotNull("uri",audioFeatureJson))
+      audioFeature.setUri(audioFeatureJson.getString("uri"));
+    if (existsAndNotNull("track_href",audioFeatureJson))
+      audioFeature.setTrackHref(audioFeatureJson.getString("track_href"));
+    if (existsAndNotNull("analysis_url",audioFeatureJson))
+      audioFeature.setAnalysisUrl(audioFeatureJson.getString("analysis_url"));
+    if (existsAndNotNull("duration_ms",audioFeatureJson))
+      audioFeature.setDurationMs(audioFeatureJson.getInt("duration_ms"));
+    if (existsAndNotNull("time_signature",audioFeatureJson))
+      audioFeature.setTimeSignature(audioFeatureJson.getInt("time_signature"));
 
     return audioFeature;
   }
