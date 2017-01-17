@@ -36,7 +36,7 @@ public class AudioFeaturesRequestTest {
         final SettableFuture<List<AudioFeature>> future = request.getAsync();
 
         Futures.addCallback(future, new FutureCallback<List<AudioFeature>>() {
-            @Override
+
             public void onSuccess(List<AudioFeature> audioFeatures) {
                 assertNotNull(audioFeatures);
                 assertEquals(audioFeatures.size(),3);
@@ -47,7 +47,6 @@ public class AudioFeaturesRequestTest {
                 asyncCompleted.countDown();
             }
 
-            @Override
             public void onFailure(Throwable throwable) {
                 fail("Failed to resolve future");
             }

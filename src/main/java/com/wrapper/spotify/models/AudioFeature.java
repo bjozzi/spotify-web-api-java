@@ -2,7 +2,7 @@ package com.wrapper.spotify.models;
 
 
 public class AudioFeature {
-    private double danceability;
+    private Double danceability;
     private double energy;
     private int key;
     private double loudness;

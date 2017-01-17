@@ -333,7 +333,8 @@ public class JsonUtil {
     }
 
     final AudioFeature audioFeature = new AudioFeature();
-    audioFeature.setDanceability(audioFeatureJson.getDouble("danceability"));
+    if (existsAndNotNull("danceability",audioFeatureJson))
+      audioFeature.setDanceability(audioFeatureJson.getDouble("danceability"));
     audioFeature.setEnergy(audioFeatureJson.getDouble("energy"));
     audioFeature.setKey(audioFeatureJson.getInt("key"));
     audioFeature.setLoudness(audioFeatureJson.getDouble("loudness"));
