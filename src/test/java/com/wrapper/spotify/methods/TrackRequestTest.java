@@ -57,7 +57,7 @@ public class TrackRequestTest {
   public void shouldGetTrackResult_sync() throws Exception {
     final Api api = Api.DEFAULT_API;
 
-    final TrackRequest request = api.getTrack("0eGsygTp906u18L0Oimnem")
+    final TrackRequest request = api.getTrack("1hmNbafW4sAPNaGc7LeXAZ")
         .httpManager(TestUtil.MockedHttpManager.returningJson("track.json"))
         .build();
 

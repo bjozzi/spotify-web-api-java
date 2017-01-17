@@ -27,10 +27,18 @@ public class ApiTest {
   }
 
   @Test
-  public void shouldCreateGetAudioFeaturesUrl(){
+  public void shouldCreateGetAudioFeatureUrl(){
     Api api = Api.DEFAULT_API;
     Request request = api.getAudioFeature("1hmNbafW4sAPNaGc7LeXAZ").build();
     assertEquals("https://api.spotify.com:443/v1/audio-features/1hmNbafW4sAPNaGc7LeXAZ", request.toString());
+  }
+
+  @Test
+  public void shouldCreateGetAudioFeaturesUrl(){
+    Api api = Api.DEFAULT_API;
+    Request request = api.getAudioFeatures("6hDH3YWFdcUNQjubYztIsG", "2IA4WEsWAYpV9eKkwR2UYv").build();
+    assertEquals("https://api.spotify.com:443/v1/audio-features", request.toString());
+    assertHasParameter(request.toUrl(), "ids", "6hDH3YWFdcUNQjubYztIsG,2IA4WEsWAYpV9eKkwR2UYv");
   }
 
   @Test
