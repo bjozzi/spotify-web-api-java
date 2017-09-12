@@ -223,9 +223,10 @@ public class JsonUtil {
     simpleAlbum.setName(simpleAlbumJson.getString("name"));
     simpleAlbum.setType(createSpotifyEntityType(simpleAlbumJson.getString("type")));
     simpleAlbum.setUri(simpleAlbumJson.getString("uri"));
-    simpleAlbum.setAvailableMarkets(
-        createAvailableMarkets(simpleAlbumJson.getJSONArray("available_markets")));
-
+    if (existsAndNotNull("available_markets", simpleAlbumJson)) {
+      simpleAlbum.setAvailableMarkets(
+              createAvailableMarkets(simpleAlbumJson.getJSONArray("available_markets")));
+    }
     return simpleAlbum;
   }
 
