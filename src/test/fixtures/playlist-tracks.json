@@ -15,9 +15,7 @@
             "track": {
                 "album": {
                     "album_type": "single",
-                    "available_markets": [ "AR", "BO", "BR", "CA", "CL", "CO", "CR", "DO", "EC",
-                                           "GB", "GT", "HN", "NI", "PA", "PE", "PH", "PY", "SV",
-                                           "UY" ],
+
                     "external_urls": {
                         "spotify": "https://open.spotify.com/album/4nOrpg3k8viJ5AtL0vOsg4"
                     },
