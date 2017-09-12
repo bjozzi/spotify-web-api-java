@@ -54,6 +54,11 @@ public class PlaylistTracksRequest extends AbstractRequest {
       return parameter("limit", String.valueOf(limit));
     }
 
+    public Builder market(String market) {
+      assert (market != null);
+      return parameter("market", market);
+    }
+
     public Builder offset(int offset) {
       assert (offset >= 0);
       return parameter("offset", String.valueOf(offset));
