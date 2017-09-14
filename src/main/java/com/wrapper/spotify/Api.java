@@ -144,7 +144,7 @@ public class Api {
   public TrackRequest.Builder getTrack(String id, String market) {
     TrackRequest.Builder builder = TrackRequest.builder();
     setDefaults(builder);
-    builder.id(id, market);
+    builder.id(id).market(market);
     return builder;
   }
 
