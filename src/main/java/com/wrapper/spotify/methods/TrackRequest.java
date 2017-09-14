@@ -49,6 +49,12 @@ public class TrackRequest extends AbstractRequest {
       return path(String.format("/v1/tracks/%s", id));
     }
 
+    /** add Market */
+    public Builder market(String market) {
+      assert (market != null);
+      return parameter("market", market);
+    }
+
     public TrackRequest build() {
       return new TrackRequest(this);
     }

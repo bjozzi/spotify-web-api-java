@@ -223,9 +223,11 @@ public class JsonUtil {
     simpleAlbum.setName(simpleAlbumJson.getString("name"));
     simpleAlbum.setType(createSpotifyEntityType(simpleAlbumJson.getString("type")));
     simpleAlbum.setUri(simpleAlbumJson.getString("uri"));
-    simpleAlbum.setAvailableMarkets(
-        createAvailableMarkets(simpleAlbumJson.getJSONArray("available_markets")));
 
+    if (existsAndNotNull("available_markets", simpleAlbumJson)) {
+      simpleAlbum.setAvailableMarkets(
+              createAvailableMarkets(simpleAlbumJson.getJSONArray("available_markets")));
+    }
     return simpleAlbum;
   }
 
@@ -287,7 +289,10 @@ public class JsonUtil {
 
     track.setAlbum(createSimpleAlbum(trackJson.getJSONObject("album")));
     track.setArtists(createSimpleArtists(trackJson.getJSONArray("artists")));
-    track.setAvailableMarkets(createAvailableMarkets(trackJson.getJSONArray("available_markets")));
+    if (existsAndNotNull("available_markets", trackJson)) {
+        track.setAvailableMarkets(createAvailableMarkets(trackJson.getJSONArray("available_markets")));
+    }
+    
     track.setDiscNumber(trackJson.getInt("disc_number"));
     track.setDuration(trackJson.getInt("duration_ms"));
     track.setExplicit(trackJson.getBoolean("explicit"));

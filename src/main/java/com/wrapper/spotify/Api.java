@@ -141,6 +141,13 @@ public class Api {
     return builder;
   }
 
+  public TrackRequest.Builder getTrack(String id, String market) {
+    TrackRequest.Builder builder = TrackRequest.builder();
+    setDefaults(builder);
+    builder.id(id).market(market);
+    return builder;
+  }
+
   public TracksRequest.Builder getTracks(String... ids) {
     return getTracks(Arrays.asList(ids));
   }
