@@ -49,15 +49,10 @@ public class TrackRequest extends AbstractRequest {
       return path(String.format("/v1/tracks/%s", id));
     }
 
-    /**
-     * The track with the given id.
-     *
-     * @param id The id for the track.
-     * @return Track Request
-     */
-    public Builder id(String id, String market) {
-      assert (id != null);
-      return path(String.format("/v1/tracks/%s?market=%s", id,market));
+    /** add Market */
+    public Builder market(String market) {
+      assert (market != null);
+      return parameter("market", market);
     }
 
     public TrackRequest build() {
